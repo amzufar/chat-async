@@ -54,3 +54,24 @@ let (mut ws_stream, _) =
 
 ### Explanation
 When modifying the port to be 8080, it is essential to make the change on both the server side and the client side to ensure they connect to each other correctly. The WebSocket protocol itself does not specify a default port. However, in this code, the port number is explicitly defined in both the server and client files. The WebSocket protocol is implicitly used when connecting to the server because the client uses the `tokio_websockets` crate, which provides WebSocket functionality. These modifications ensure that both the server and client communicate over port 8080, allowing them to establish a connection and interact with each other properly.
+
+## Experiment 2.3: Small changes. Add some information to client (IP and Port)
+To modify and add information about the sender to each client, we need to make changes in both the server file. Here's what we need to do:
+
+### Server Side
+In the server side, I added the combined information for the IP address and the port number by prepending it onto the bcast_tx to later be broadcasted.
+```bash
+let combined = addr.to_string() + ": " + text;
+bcast_tx.send(combined.into())?;
+```
+
+### Explanation
+This modification allows clients to see who sent each message bu displaying the sender's IP address and port along with the message content. By making these modifications, we improve the functionality of the chat application, providing users with more context about the messages they receive.
+
+### Screenshots
+1. Server
+![Server](assets/images/exp2-3-server.png)
+2. Client 1
+![Client 1](assets/images/exp2-3-client-1.png)
+3. Client 2
+![Client 2](assets/images/exp2-3-client-2.png)
