@@ -26,12 +26,19 @@ cargo run --bin client
 
 ### Screenshots
 1. Server
+
 ![Server](assets/images/exp2-1-server.png)
+
 2. Client 1
+
 ![Client 1](assets/images/exp2-1-client-1.png)
+
 3. Client 2
-![Client 2](assets/images/exp2-1-client-2.png)
+
+![Client 2](assets/images/exp2-1-client-2.PNG)
+
 4. Client 3
+
 ![Client 3](assets/images/exp2-1-client-3.png)
 
 ## Experiment 2.2: Modifying the websocket port
